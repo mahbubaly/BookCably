@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/welcomebook"
+    android:gravity="center">
+
+
+
+
+
+
+
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="20dp"
+
+
+        android:alpha="0.8"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="28dp"
+        app:cardBackgroundColor="#6E1A1A"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to BookCably"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:background="#B88539"
+            android:textColor="@color/white"
+
+
+
+
+            />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <Button
+        android:id="@+id/btn_getStarted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get started"
+
+        android:padding="10dp"
+        android:backgroundTint="#35A8D3"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+
+        android:layout_marginTop="90dp" />
+
+
+
+
+</LinearLayout>

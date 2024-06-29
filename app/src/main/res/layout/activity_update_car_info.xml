@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/text_view_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To update search a product by name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Product ID field (non-editable) -->
+
+
+    <EditText
+        android:id="@+id/edit_car_modelNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search by model Number: "
+        android:inputType="text" />
+
+
+    <TextView
+        android:id="@+id/text_carBrandName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:enabled="false"
+        android:hint="Brand Name: " />
+
+
+    <EditText
+        android:id="@+id/edit_text_NumberOfSeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number Of seat: "
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edit_text_CarNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Change car number: "
+        android:inputType="text" />
+
+
+
+
+    <EditText
+        android:id="@+id/edit_text_perHourCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Per hour cost: "
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/text_view_product_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car ID"
+        android:padding="8dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:enabled="false" />
+    <ImageView
+        android:id="@+id/image_view_product"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button_select_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Image"
+        android:layout_marginTop="16dp" />
+
+    <!-- Horizontal layout for side-by-side buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="12dp"
+            android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:text="Search" />
+
+        <Button
+            android:id="@+id/button_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/design_default_color_primary"
+            android:text="Update Product" />
+    </LinearLayout>
+
+</LinearLayout>

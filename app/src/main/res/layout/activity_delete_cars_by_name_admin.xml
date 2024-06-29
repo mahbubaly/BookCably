@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/text_view_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete a product by name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/edit_car_modelNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search by model Number: "
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/text_carBrandName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:enabled="false"
+        android:hint="Brand Name: " />
+
+    <TextView
+        android:id="@+id/edit_text_NumberOfSeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number Of seat: "
+        android:padding="8dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:enabled="false" />
+
+    <TextView
+        android:id="@+id/edit_text_CarNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car number: "
+        android:padding="8dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:enabled="false" />
+
+    <TextView
+        android:id="@+id/edit_text_perHourCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Per hour cost: "
+        android:padding="8dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:enabled="false" />
+
+    <TextView
+        android:id="@+id/text_view_product_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car ID"
+        android:padding="8dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:enabled="false" />
+
+    <ImageView
+        android:id="@+id/image_view_product"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_marginTop="16dp" />
+
+
+    <Button
+        android:id="@+id/btn_goBackHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back Home"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

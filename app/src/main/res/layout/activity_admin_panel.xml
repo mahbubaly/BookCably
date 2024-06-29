@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/adminimage"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AdminPanel">
+
+
+    <TextView
+        android:layout_width="214dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
+        android:text="Welcome Admin"
+        android:textColor="@color/white"
+        android:textSize="27sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_insert_product"
+        android:layout_width="200dp"
+        android:layout_height="62dp"
+        android:text="Add New Car" />
+
+    <Button
+        android:id="@+id/btn_CarInfo"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#2895C6"
+
+        android:text="Available Cars"
+        android:textSize="16dp" />
+
+
+    <Button
+        android:id="@+id/btn_Userlist"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="View User list"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/btn_UserBookedCars"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Car on rent"
+        android:textSize="16dp" />
+
+
+</LinearLayout>

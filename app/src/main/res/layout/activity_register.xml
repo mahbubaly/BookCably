@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/reg"
+
+
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+
+
+    >
+
+    <TextView
+        android:id="@+id/tv_login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Register"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/black" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username: "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username "
+        android:inputType="text"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="username" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter first name: "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+    <EditText
+        android:id="@+id/et_firstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name "
+        android:inputType="text"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="FirstName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter last name: "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+    <EditText
+        android:id="@+id/et_LastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last name "
+        android:inputType="text"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="LastName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter email "
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="emailAddress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="phone number: "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+    <EditText
+        android:id="@+id/et_phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="phone number "
+        android:inputType="text"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="phoneNumber" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date of birth: "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+    <EditText
+        android:id="@+id/et_dateOfBirth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="yyyy-mm-dd"
+        android:inputType="text"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="birthDate" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age: "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+    <EditText
+        android:id="@+id/et_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter age: "
+        android:inputType="text"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="birthDate" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you have driving licence? "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+    <EditText
+        android:id="@+id/et_License"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Yes/No"
+        android:inputType="text"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="text" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password: "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password "
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="birthDate" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Password: "
+        android:textSize="14dp"
+        android:gravity="start"
+        />
+    <EditText
+        android:id="@+id/et_ConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:autofillHints="password" />
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+
+
+        <Button
+            android:id="@+id/btn_signUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sign up"
+            android:padding="12dp"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="8dp" />
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+
+        >
+
+
+        <TextView
+            android:id="@+id/tv_already_have_ac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?"
+            android:textSize="14dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+
+            />
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>
+
+</ScrollView>

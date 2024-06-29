@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/insertpp"
+    tools:context=".InsertCarsActivity">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_gravity="center"
+
+        >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:text="Add Car"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+
+
+            />
+
+        <EditText
+            android:id="@+id/et_brand_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter brand Name: "
+            android:inputType="text"
+            android:textColorHint="@color/white"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"/>
+
+
+
+
+
+        <EditText
+            android:id="@+id/et_Model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter model name: "
+            android:inputType="text"
+            android:textColorHint="@color/white"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/et_carSeater"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number of Seat: "
+            android:inputType="number"
+            android:textColorHint="@color/white"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"/>
+
+
+
+        <EditText
+            android:id="@+id/et_carNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Car number"
+            android:inputType="text"
+            android:textColorHint="@color/white"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/et_perHourCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cost per hour"
+            android:inputType="numberDecimal"
+            android:textColorHint="@color/white"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"/>
+
+        <ImageView
+            android:id="@+id/iv_selected_image"
+            android:layout_width="match_parent"
+            android:layout_height="167dp"
+            android:layout_marginBottom="16dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/upload_icon" />
+
+        <Button
+            android:id="@+id/btn_select_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:layout_marginBottom="10dp"/>
+
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload" />
+        
+        
+        
+    </LinearLayout>
+
+</RelativeLayout>

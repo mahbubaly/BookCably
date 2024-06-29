@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Application"
+        tools:targetApi="31">
+        <activity
+            android:name="com.bookcably.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.CarOnRentActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.TakingRentAcitivty"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.DeleteCarsByNameAdmin"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.UpdateCarInfo"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.UserProfilePageActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.AvailableCarActivityUserPage"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.UserVIewCarActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.UserListActivityAdminPage"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.ViewCarActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.InsertCarsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.AdminPanel"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.WelcomeToBookCably"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
