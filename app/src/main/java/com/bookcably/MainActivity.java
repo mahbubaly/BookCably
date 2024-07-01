@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     if (validUserOrNot) {
                         Toast.makeText(MainActivity.this, "Log in successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this,UserVIewCarActivity.class);
+                        intent.putExtra("username", username);
                         startActivity(intent);
 
                         // Clear fields after successful login

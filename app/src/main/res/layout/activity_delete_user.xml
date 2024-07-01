@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="#fcf7f4"
 
+
     android:orientation="vertical">
 
 
@@ -19,6 +20,7 @@
         >
 
     </ImageView>
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -49,6 +51,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -58,86 +62,39 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="Confirmed your car?"
+            android:text="Delete user by user name"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edit_Take_car_modelNo"
+            android:id="@+id/ed_userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Search by model Number: "
+            android:hint="Search by username: "
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/text_Take_carBrandName"
+            android:id="@+id/text_userFullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#D3D2D2"
+            android:background="#D1CFCF"
             android:enabled="false"
-            android:hint="Brand Name: "
+            android:hint="Name: "
             android:padding="8dp"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tv_take_NumberOfSeat"
+            android:id="@+id/Text_date_ofBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#D1CECE"
+            android:background="#D1CFCF"
             android:enabled="false"
-            android:hint="Number Of seat: "
+            android:hint="Date of birth: "
             android:padding="8dp"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/tv_take_text_CarNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#D1D0D0"
-            android:enabled="false"
-            android:hint="Car number: "
-            android:padding="8dp"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/tv_take_text_perHourCost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#D1CECE"
-            android:enabled="false"
-            android:hint="Per hour cost: "
-            android:padding="8dp"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-
-        <EditText
-            android:id="@+id/edit_hourforTaking"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter duration (in hours): "
-            android:inputType="number" />
-
-        <TextView
-            android:id="@+id/text_total_amount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:enabled="false"
-            android:hint="Your total bill is: "
-            android:padding="8dp"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/image_view_product"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="centerCrop" />
 
         <Button
             android:id="@+id/button_search"
@@ -146,14 +103,6 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="#00BCD4"
             android:text="Search" />
-
-        <Button
-            android:id="@+id/btn_Total_amount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:backgroundTint="#60599E"
-            android:text="Total Amount" />
 
 
         <LinearLayout
@@ -165,7 +114,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_goBackHome"
+                android:id="@+id/btn_UBackHome"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="12dp"
@@ -174,15 +123,28 @@
                 android:text="Back home" />
 
             <Button
-                android:id="@+id/button_confirm"
+                android:id="@+id/btn_delete_user"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#009688"
-                android:text="Confirmed" />
+                android:backgroundTint="#BD0404"
+                android:text="Delete" />
 
 
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginLeft="-150dp"
+            android:layout_marginTop="130dp"
+            android:alpha="0.2"
+            android:rotation="0"
+            android:src="@drawable/img_ins_bg"
+
+            >
+
+        </ImageView>
     </LinearLayout>
 
 

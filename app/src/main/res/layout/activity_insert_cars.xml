@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/insertpp"
-    tools:context=".InsertCarsActivity">
+    android:background="#60599E"
+
+   >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="100dp"
+        android:rotation="320"
+        android:alpha="0.6"
+        android:src="@drawable/img_ins_bg"
+
+        >
+
+    </ImageView>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="600dp"
+        android:alpha="0.4"
+        android:rotation="20"
+        android:src="@drawable/t1">
+
+    </ImageView>
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
-            android:text="Add Car"
+            android:text="Add New Car"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
@@ -37,8 +60,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter brand Name: "
+
             android:inputType="text"
-            android:textColorHint="@color/white"
+            android:textColorHint="#434141"
             android:textColor="@android:color/white"
             android:layout_marginBottom="16dp"/>
 
@@ -52,7 +76,7 @@
             android:layout_height="wrap_content"
             android:hint="Enter model name: "
             android:inputType="text"
-            android:textColorHint="@color/white"
+            android:textColorHint="#434141"
             android:textColor="@android:color/white"
             android:layout_marginBottom="16dp"/>
 
@@ -62,7 +86,7 @@
             android:layout_height="wrap_content"
             android:hint="Number of Seat: "
             android:inputType="number"
-            android:textColorHint="@color/white"
+            android:textColorHint="#434141"
             android:textColor="@android:color/white"
             android:layout_marginBottom="16dp"/>
 
@@ -74,7 +98,7 @@
             android:layout_height="wrap_content"
             android:hint="Car number"
             android:inputType="text"
-            android:textColorHint="@color/white"
+            android:textColorHint="#434141"
             android:textColor="@android:color/white"
             android:layout_marginBottom="16dp"/>
 
@@ -82,29 +106,32 @@
             android:id="@+id/et_perHourCost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cost per hour"
+            android:hint="Cost per hour(In taka)"
             android:inputType="numberDecimal"
-            android:textColorHint="@color/white"
+            android:textColorHint="#434141"
             android:textColor="@android:color/white"
             android:layout_marginBottom="16dp"/>
 
         <ImageView
             android:id="@+id/iv_selected_image"
-            android:layout_width="match_parent"
-            android:layout_height="167dp"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="16dp"
-            android:scaleType="fitCenter"
             app:srcCompat="@drawable/upload_icon" />
 
         <Button
             android:id="@+id/btn_select_image"
             android:layout_width="match_parent"
+            android:backgroundTint="#1994CC"
             android:layout_height="wrap_content"
             android:text="Select Image"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"/>
 
         <Button
             android:id="@+id/btn_upload"
+            android:backgroundTint="#1994CC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Upload" />

@@ -1,5 +1,6 @@
 package com.bookcably;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.application.R;
@@ -23,14 +25,12 @@ public class DeleteCarsByNameAdmin extends AppCompatActivity {
     private TextView TextCarNumber;
     private TextView perHourCost;
 
-
     private ImageView imageViewProduct;
     private Button buttonDelete;
     private Button buttonSearch;
     private Button buttonGoBackHome;
 
 
-    private TextView textViewProductId;
 
     private DatabaseHelper databaseHelper;
     private byte[] productImageByteArray;
@@ -48,26 +48,20 @@ public class DeleteCarsByNameAdmin extends AppCompatActivity {
         TextCarBrandName = findViewById(R.id.text_carBrandName);
 
 
-
-        textViewProductId = findViewById(R.id.text_view_product_id);
         imageViewProduct = findViewById(R.id.image_view_product);
         buttonDelete = findViewById(R.id.button_delete);
         buttonSearch = findViewById(R.id.button_search);
         buttonGoBackHome = findViewById(R.id.btn_goBackHome);
 
-
-
         databaseHelper = new DatabaseHelper(this);
 
         buttonSearch.setOnClickListener(view -> searchProduct());
-        buttonDelete.setOnClickListener(view -> deleteProduct());
+        buttonDelete.setOnClickListener(view -> showDeleteConfirmationDialog());
 
-        buttonGoBackHome.setOnClickListener(v->{
-            Intent intent = new Intent(DeleteCarsByNameAdmin.this,ViewCarActivity.class);
+        buttonGoBackHome.setOnClickListener(v -> {
+            Intent intent = new Intent(DeleteCarsByNameAdmin.this, UserListActivityAdminPage.class);
             startActivity(intent);
         });
-
-
     }
 
     private void searchProduct() {
@@ -86,11 +80,11 @@ public class DeleteCarsByNameAdmin extends AppCompatActivity {
             int costPerHour = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_PRODUCT_COSTPERDAY));
             byte[] image = cursor.getBlob(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_PRODUCT_IMAGE_URI));
 
-            TextCarBrandName.setText("Brand name: "+ brandNameOfCar);
-            TextCarSeatNumber.setText(String.valueOf("Seat Number: "+ seatNumber));
-            TextCarNumber.setText("Car Number: "+carNumber);
-            perHourCost.setText(String.valueOf(costPerHour +"৳" ));
-            textViewProductId.setText(String.valueOf("Id: " +productId));
+            TextCarBrandName.setText("Brand name: " + brandNameOfCar);
+            TextCarSeatNumber.setText(String.valueOf("Seat Number: " + seatNumber));
+            TextCarNumber.setText("Car Number: " + carNumber);
+            perHourCost.setText(String.valueOf(costPerHour + "৳"));
+
 
             if (image != null) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
@@ -99,8 +93,17 @@ public class DeleteCarsByNameAdmin extends AppCompatActivity {
             }
             cursor.close();
         } else {
-            Toast.makeText(this, "Product not found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Product not found please try again", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showDeleteConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete Product")
+                .setMessage("Are you sure you want to delete this product?")
+                .setPositiveButton(android.R.string.yes, (dialog, which) -> deleteProduct())
+                .setNegativeButton(android.R.string.no, null)
+                .show();
     }
 
     private void deleteProduct() {
@@ -112,11 +115,11 @@ public class DeleteCarsByNameAdmin extends AppCompatActivity {
         }
 
         boolean isDeleted = databaseHelper.deleteProductByModelName(productName);
-        if (isDeleted){
-            Toast.makeText(this, "Product deleted", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(DeleteCarsByNameAdmin.this,ViewCarActivity.class);
+        if (isDeleted) {
+            Toast.makeText(this, "Deleted ", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(DeleteCarsByNameAdmin.this, ViewCarActivity.class);
             startActivity(intent);
-        }else {
+        } else {
             Toast.makeText(this, "Product not deleted", Toast.LENGTH_SHORT).show();
         }
     }

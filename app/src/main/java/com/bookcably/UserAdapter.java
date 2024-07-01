@@ -28,6 +28,7 @@ public class UserAdapter extends CursorAdapter {
         TextView userPhoneNumber = view.findViewById(R.id.text_view_PhoneNumber); // Updated to the correct ID
         TextView userAge = view.findViewById(R.id.text_viewAge);
         TextView userLicense = view.findViewById(R.id.text_view_License);
+        TextView userName = view.findViewById(R.id.text_username);
 
         // Ensure none of the TextViews are null
         if (nameOfUser == null || emailOfUser == null || userPhoneNumber == null || userAge == null || userLicense == null) {
@@ -36,6 +37,7 @@ public class UserAdapter extends CursorAdapter {
 
         // Get the text from database
         String userFirstName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_FIRSTNAME));
+        String userNameofUser = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_USERNAME));
         String userLastName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_LASTNAME));
         String userEmail = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_EMAIL));
         String userPhone = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_MOBILE));
@@ -46,7 +48,8 @@ public class UserAdapter extends CursorAdapter {
         nameOfUser.setText("Name: " + userFirstName + " " + userLastName);
         emailOfUser.setText("Email: "+userEmail);
         userPhoneNumber.setText("Phone: "+userPhone);
-        userAge.setText("Age: "+age);
+        userAge.setText("Age: "+age+"y");
         userLicense.setText("Available License: "+license);
+        userName.setText("Username: "+userNameofUser);
     }
 }

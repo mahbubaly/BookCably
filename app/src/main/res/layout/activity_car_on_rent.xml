@@ -1,38 +1,112 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-
+    android:background="#fcf7f4"
+    android:orientation="vertical"
     android:padding="16dp">
 
-
-    <TextView
-        android:id="@+id/tv_login_title"
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Car Booking list"
+        android:layout_height="100dp"
         android:layout_marginLeft="100dp"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:textColor="@android:color/black" />
+        android:layout_marginTop="10dp"
+        android:alpha="0.3"
+        android:rotation="320"
+        android:src="@drawable/img_ins_bg"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="200dp"
+        android:alpha="0.3"
+        android:rotation="320"
+        android:src="@drawable/img_ins_bg"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="-200dp"
+        android:layout_marginTop="350dp"
+        android:alpha="0.3"
+        android:rotation="20"
+        android:src="@drawable/t1"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="550dp"
+        android:alpha="0.3"
+        android:rotation="20"
+        android:src="@drawable/t2"
+
+        >
+
+    </ImageView>
+
 
     <LinearLayout
-        android:id="@+id/button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booking List"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:layout_marginTop="50dp"
 
+        android:gravity="center_horizontal"
+
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancelBooking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:backgroundTint="#D11052"
+            android:text="Cancel Booking" />
 
 
     </LinearLayout>
 
     <ListView
         android:id="@+id/lists_view_Cars_on_rent"
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/button_container"/>
+        android:layout_above="@id/btn_container"
+        android:layout_marginTop="60dp" />
+
 
 </RelativeLayout>

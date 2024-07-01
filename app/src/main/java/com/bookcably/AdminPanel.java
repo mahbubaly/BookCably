@@ -21,6 +21,7 @@ public class AdminPanel extends AppCompatActivity {
         Button availableCar= findViewById(R.id.btn_CarInfo);
         Button viewUserBtn = findViewById(R.id.btn_Userlist);
         Button btnCarOnRent = findViewById(R.id.btn_UserBookedCars);
+        Button btnHome = findViewById(R.id.btn_backHome);
 
 
 
@@ -43,6 +44,10 @@ public class AdminPanel extends AppCompatActivity {
 
         btnCarOnRent.setOnClickListener(v->{
             Intent intent = new Intent(AdminPanel.this,CarOnRentActivity.class);
+            startActivity(intent);
+        });
+        btnHome.setOnClickListener(v->{
+            Intent intent = new Intent(AdminPanel.this,MainActivity.class);
             startActivity(intent);
         });
 

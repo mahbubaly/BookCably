@@ -1,5 +1,6 @@
 package com.bookcably;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +23,7 @@ public class UserListActivityAdminPage extends AppCompatActivity {
 
         listViewUsers = findViewById(R.id.listOfUsers);
         Button deleteBtn = findViewById(R.id.btn_delete);
-        Button UpdateBtn = findViewById(R.id.btn_update);
+//        Button UpdateBtn = findViewById(R.id.btn_update);
 
 
         databaseHelper = new DatabaseHelper(this);
@@ -30,16 +31,16 @@ public class UserListActivityAdminPage extends AppCompatActivity {
         displayAllUsers();
 
         deleteBtn.setOnClickListener(v->{
-//            //Toast.makeText(UserListActivityAdminPage.this, "Deleted", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(UserListActivityAdminPage.this,DeleteCarsByNameAdmin.class);
-//            startActivity(intent);
+            //Toast.makeText(UserListActivityAdminPage.this, "Deleted", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(UserListActivityAdminPage.this,DeleteUserActivity.class);
+            startActivity(intent);
 
         });
 
-        UpdateBtn.setOnClickListener(v->{
-//            Intent intent = new Intent(UserListActivityAdminPage.this,DeleteCarsByNameAdmin.class);
-//            startActivity(intent);
-        });
+//        UpdateBtn.setOnClickListener(v->{
+////            Intent intent = new Intent(UserListActivityAdminPage.this,DeleteCarsByNameAdmin.class);
+////            startActivity(intent);
+//        });
 
     }
 

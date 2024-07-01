@@ -44,6 +44,11 @@ public class ViewCarActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        displayCarItems();
+    }
 
 
     private void displayCarItems(){

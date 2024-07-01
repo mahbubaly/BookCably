@@ -31,7 +31,7 @@ public class TakingRentAcitivty extends AppCompatActivity {
     private Button buttonGoBackHome;
     private Button btnTotalAmountINTK;
 
-    private TextView textViewProductId;
+
 
     private DatabaseHelper databaseHelper;
     private byte[] productImageByteArray;
@@ -50,7 +50,7 @@ public class TakingRentAcitivty extends AppCompatActivity {
         perHourCost = findViewById(R.id.tv_take_text_perHourCost);
         hoursForRent = findViewById(R.id.edit_hourforTaking);
         totalAmountBill = findViewById(R.id.text_total_amount);
-        textViewProductId = findViewById(R.id.text_view_product_id);
+
         imageViewProduct = findViewById(R.id.image_view_product);
         buttonConfirm = findViewById(R.id.button_confirm);
         buttonSearch = findViewById(R.id.button_search);
@@ -89,7 +89,7 @@ public class TakingRentAcitivty extends AppCompatActivity {
             TextCarSeatNumber.setText("Seat Number: " + seatNumber);
             TextCarNumber.setText("Car Number: " + carNumber);
             perHourCost.setText("Per hour cost: " + costPerHour + "৳");
-            textViewProductId.setText("Id: " + productId);
+
 
             if (image != null) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
@@ -115,8 +115,8 @@ public class TakingRentAcitivty extends AppCompatActivity {
     }
 
     private void confirmedProduct() {
-        String modelName = editTextModelName.getText().toString().trim();
         String brandName = TextCarBrandName.getText().toString().replace("Brand name: ", "").trim();
+        String modelName = editTextModelName.getText().toString().trim();
         String carNumber = TextCarNumber.getText().toString().replace("Car Number: ", "").trim();
         String seatNumberStr = TextCarSeatNumber.getText().toString().replace("Seat Number: ", "").trim();
         String hoursForRentStr = hoursForRent.getText().toString().trim();

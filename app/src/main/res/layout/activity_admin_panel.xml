@@ -1,54 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/adminimage"
-    android:gravity="center"
+    android:background="#60599E"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".AdminPanel">
+
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+        android:alpha="0.3"
+        android:rotation="320"
+        android:src="@drawable/img_ins_bg"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="200dp"
+        android:alpha="0.3"
+        android:rotation="320"
+        android:src="@drawable/img_ins_bg"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="-200dp"
+        android:layout_marginTop="350dp"
+        android:alpha="0.3"
+        android:rotation="20"
+        android:src="@drawable/t1"
+
+        >
+
+    </ImageView>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="550dp"
+        android:alpha="0.3"
+        android:rotation="20"
+        android:src="@drawable/t2"
+
+        >
+
+    </ImageView>
 
 
-    <TextView
-        android:layout_width="214dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="16dp"
-        android:text="Welcome Admin"
-        android:textColor="@color/white"
-        android:textSize="27sp"
-        android:textStyle="bold" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center"
+       android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_insert_product"
-        android:layout_width="200dp"
-        android:layout_height="62dp"
-        android:text="Add New Car" />
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="100dp"
+           android:background="@drawable/rounded_background"
+           android:padding="50dp"
+           android:rotationX="@integer/material_motion_duration_long_2"
 
-    <Button
-        android:id="@+id/btn_CarInfo"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:backgroundTint="#2895C6"
-
-        android:text="Available Cars"
-        android:textSize="16dp" />
+           >
 
 
-    <Button
-        android:id="@+id/btn_Userlist"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="View User list"
-        android:textSize="16dp" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="55dp"
 
-    <Button
-        android:id="@+id/btn_UserBookedCars"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="Car on rent"
-        android:textSize="16dp" />
+               android:text="Welcome Admin"
+               android:textColor="#0E3C2A"
+               android:textSize="27sp"
+               android:textStyle="bold" />
+
+       </LinearLayout>
 
 
-</LinearLayout>
+       <Button
+           android:id="@+id/btn_insert_product"
+           android:layout_width="200dp"
+           android:layout_height="wrap_content"
+           android:backgroundTint="#1994CC"
+           android:layout_marginBottom="15dp"
+           android:text="Add New Car" />
+
+       <Button
+           android:id="@+id/btn_CarInfo"
+           android:layout_width="200dp"
+           android:layout_height="wrap_content"
+           android:backgroundTint="#1994CC"
+           android:layout_marginBottom="15dp"
+           android:text="Available Cars"
+           android:textSize="16dp" />
+
+
+       <Button
+           android:id="@+id/btn_Userlist"
+           android:layout_width="200dp"
+           android:layout_height="wrap_content"
+           android:backgroundTint="#1994CC"
+           android:text="List of users"
+           android:layout_marginBottom="15dp"
+           android:textSize="16dp" />
+
+       <Button
+           android:id="@+id/btn_UserBookedCars"
+           android:layout_width="200dp"
+           android:layout_height="wrap_content"
+           android:backgroundTint="#1994CC"
+           android:layout_marginBottom="15dp"
+           android:text="Car on rent"
+           android:textSize="16dp" />
+
+       <Button
+           android:id="@+id/btn_backHome"
+           android:layout_width="200dp"
+           android:layout_height="wrap_content"
+           android:backgroundTint="#1994CC"
+           android:text="Back to logIn"
+           android:textSize="16dp" />
+   </LinearLayout>
+
+
+</RelativeLayout>

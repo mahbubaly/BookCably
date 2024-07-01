@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Application"
         tools:targetApi="31">
         <activity
+            android:name="com.bookcably.CancelBookingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bookcably.DeleteUserActivity"
+            android:exported="false" />
+        <activity
             android:name="com.bookcably.ForgotPasswordActivity"
             android:exported="false" />
         <activity

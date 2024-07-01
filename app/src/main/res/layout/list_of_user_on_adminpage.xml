@@ -6,35 +6,37 @@
     android:padding="16dp">
 
 
-
+    <TextView
+        android:id="@+id/text_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/text_NameOfUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="18dp"
-
-
-        android:textStyle="bold" />
+         />
 
 
     <TextView
         android:id="@+id/text_view_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:textSize="14sp"
-
-        android:textStyle="bold" />
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/text_view_PhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="14sp" />
 
     <TextView
@@ -43,14 +45,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/text_view_License"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="14dp" />
 
 

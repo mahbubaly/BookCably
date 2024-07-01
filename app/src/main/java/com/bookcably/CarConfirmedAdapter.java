@@ -32,7 +32,6 @@ public class CarConfirmedAdapter extends CursorAdapter {
         TextView BrandNameTextView = view.findViewById(R.id.text_BookingBrandName);
         TextView ModelNameTextView = view.findViewById(R.id.text_view_bookingModelName);
         TextView bookingHours = view.findViewById(R.id.text_view_bookingHours);
-
         TextView CarNumberTextView = view.findViewById(R.id.text_viewBooking_CarNumber);
         TextView bookingCosting = view.findViewById(R.id.text_view_bookingCost);
         ImageView productImageView = view.findViewById(R.id.image_bookingview_product);
@@ -42,13 +41,8 @@ public class CarConfirmedAdapter extends CursorAdapter {
 
         //Calling from database:
         String brandNam = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_BOOKING_BRAND_NAME));
-
         String Modelnam = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_BOOKING_MODEL_NAME));
-
-
-
         String carNum = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_BOOKING_CAR_NUMBER));
-
         int totalBookingCostHo = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_BOOKING_COST_PER_HOUR));
         int bookingH = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_BOOKING_HOURS));
 
@@ -57,12 +51,7 @@ public class CarConfirmedAdapter extends CursorAdapter {
 
         BrandNameTextView.setText("Brand Name: " + brandNam);
         ModelNameTextView.setText("Model: " + Modelnam);
-
-
-
         CarNumberTextView.setText("Car Number: "+ carNum);
-
-
         bookingHours.setText(String.valueOf("Total hours: "+bookingH+"h"));
         bookingCosting.setText(String.valueOf("Total amount: "+totalBookingCostHo+"৳"));
 

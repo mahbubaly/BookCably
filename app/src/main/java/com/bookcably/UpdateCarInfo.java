@@ -49,8 +49,11 @@ public class UpdateCarInfo extends AppCompatActivity {
         editTextSeatNum = findViewById(R.id.edit_text_NumberOfSeat);
         editTextCarNumber = findViewById(R.id.edit_text_CarNumber);
         editTextPerHourCost = findViewById(R.id.edit_text_perHourCost);
+
         imageViewProduct = findViewById(R.id.image_view_product);
+
         buttonUpdate = findViewById(R.id.button_update);
+
         buttonSelectImage = findViewById(R.id.button_select_image);
         buttonSearch = findViewById(R.id.button_search);
         textViewProductId = findViewById(R.id.text_view_product_id);
@@ -83,7 +86,7 @@ public class UpdateCarInfo extends AppCompatActivity {
             editTextSeatNum.setText("Total Seat: " + seatNumber);
             editTextCarNumber.setText("Car Number: " + carNumber);
             editTextPerHourCost.setText(costPerHour + "৳");
-            textViewProductId.setText("Id: " + productId);
+//            textViewProductId.setText("Id: " + productId);
 
             if (image != null) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
