@@ -18,7 +18,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         Button btnContinue = findViewById(R.id.btn_continue);
 
         btnContinue.setOnClickListener(v->{
-            Toast.makeText(ForgotPasswordActivity.this, "Continue will be //TODO", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(ForgotPasswordActivity.this, "Check your email", Toast.LENGTH_SHORT).show();
 
         });
 

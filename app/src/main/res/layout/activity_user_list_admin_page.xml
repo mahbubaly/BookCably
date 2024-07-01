@@ -1,23 +1,76 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/av"
+    android:background="#fcf7f4"
+    android:orientation="vertical"
     android:padding="16dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+        android:alpha="0.3"
+        android:rotation="320"
+        android:src="@drawable/img_ins_bg"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="200dp"
+        android:alpha="0.3"
+        android:rotation="320"
+        android:src="@drawable/img_ins_bg"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="-200dp"
+        android:layout_marginTop="350dp"
+        android:alpha="0.3"
+        android:rotation="20"
+        android:src="@drawable/t1"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="550dp"
+        android:alpha="0.3"
+        android:rotation="20"
+        android:src="@drawable/t2"
+
+        >
+
+    </ImageView>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:gravity="center">
 
         <TextView
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User List"
+            android:text="Show user List"
             android:textAlignment="center"
-            android:textColor="#2196F3"
+            android:textColor="@color/black"
             android:textSize="24dp"
 
             android:textStyle="bold" />
@@ -37,23 +90,25 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_update"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:layout_weight="1"
-            android:backgroundTint="#009688"
-
-            android:text="Update" />
-
-        <Button
             android:id="@+id/btn_delete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="12dp"
             android:layout_weight="1"
-            android:backgroundTint="#E91E63"
+            android:backgroundTint="#D11052"
             android:text="Delete" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:backgroundTint="#1994CC"
+
+            android:text="Update" />
+
+
 
 
     </LinearLayout>
@@ -63,8 +118,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/btn_container"
-        android:layout_marginTop="50dp" />
-
+        android:layout_marginTop="60dp" />
 
 
 </RelativeLayout>

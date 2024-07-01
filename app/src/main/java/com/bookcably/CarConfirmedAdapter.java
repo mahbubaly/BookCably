@@ -32,7 +32,6 @@ public class CarConfirmedAdapter extends CursorAdapter {
         TextView BrandNameTextView = view.findViewById(R.id.text_BookingBrandName);
         TextView ModelNameTextView = view.findViewById(R.id.text_view_bookingModelName);
         TextView bookingHours = view.findViewById(R.id.text_view_bookingHours);
-
         TextView CarNumberTextView = view.findViewById(R.id.text_viewBooking_CarNumber);
         TextView bookingCosting = view.findViewById(R.id.text_view_bookingCost);
         ImageView productImageView = view.findViewById(R.id.image_bookingview_product);

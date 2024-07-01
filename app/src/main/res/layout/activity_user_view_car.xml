@@ -1,49 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/red_user_page"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".UserVIewCarActivity">
 
+    android:padding="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_background"
+        android:padding="30dp"
+        android:rotationX="@integer/material_motion_duration_long_2"
+
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Welcome to bookcably"
+            android:textColor="@color/white"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Welcome TO BookCably!!"
-        android:textColor="#CDDC39"
-        android:textSize="27sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="Here some options"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold" />
-
 
 
     <Button
         android:id="@+id/btn_AvailableCars"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Available Cars"
         android:layout_marginTop="50dp"
         android:backgroundTint="#2895C6"
+        android:text="Available Cars"
         android:textSize="16dp" />
 
     <Button
         android:id="@+id/btn_take_rent"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="62dp"
         android:backgroundTint="#009688"
         android:text="Take Rent" />
 
 
-
     <Button
         android:id="@+id/btn_Your_profile"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Your Profile"
+        android:text="My Profile"
         android:textSize="16dp" />
 
 
