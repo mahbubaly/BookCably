@@ -130,7 +130,7 @@
            android:layout_width="200dp"
            android:layout_height="wrap_content"
            android:backgroundTint="#1994CC"
-           android:text="Back to logIn"
+           android:text="Back"
            android:textSize="16dp" />
    </LinearLayout>
 
