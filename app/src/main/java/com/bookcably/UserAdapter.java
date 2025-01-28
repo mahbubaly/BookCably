@@ -12,6 +12,7 @@ import com.example.application.R;
 
 public class UserAdapter extends CursorAdapter {
     public UserAdapter(Context context, Cursor cursor, int flags) {
+
         super(context, cursor, flags);
     }
 

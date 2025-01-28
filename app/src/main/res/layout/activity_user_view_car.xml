@@ -142,16 +142,18 @@
         <Button
             android:id="@+id/btn_AvailableCars"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginTop="50dp"
             android:backgroundTint="#2895C6"
             android:text="Available Cars"
+            android:layout_marginBottom="10dp"
             android:textSize="16dp" />
 
         <Button
             android:id="@+id/btn_take_rent"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
             android:backgroundTint="#009688"
             android:text="Take Rent" />
 
@@ -159,8 +161,17 @@
         <Button
             android:id="@+id/btn_Your_profile"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
             android:text="My Profile"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/btn_logOut"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="#D11052"
+            android:text="Log out"
             android:textSize="16dp" />
     </LinearLayout>
 

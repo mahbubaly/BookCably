@@ -1,277 +1,387 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/reg"
+    android:layout_height="match_parent">
 
-
-    >
-
-    <LinearLayout
+    <!-- Existing ScrollView Content -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
-
-
-        >
-
-        <TextView
-            android:id="@+id/tv_login_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:text="Please Register"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="Username: "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="username"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Username "
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="Enter first name: "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_firstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="FirstName"
-            android:background="@android:drawable/editbox_background"
-            android:hint="First Name "
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="Enter last name: "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_LastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="LastName"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Last name "
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="Email: "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="emailAddress"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Enter email "
-            android:inputType="textEmailAddress"
-            android:padding="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="phone number: "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_phoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="phoneNumber"
-            android:background="@android:drawable/editbox_background"
-            android:hint="phone number "
-            android:inputType="text"
-            android:padding="12dp" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="Date of birth: "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_dateOfBirth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="birthDate"
-            android:background="@android:drawable/editbox_background"
-            android:hint="yyyy-mm-dd"
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="Age: "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="birthDate"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Enter age: "
-            android:inputType="text"
-            android:padding="12dp" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="Do you have driving licence? "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_License"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="text"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Yes/No"
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="Password: "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="birthDate"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Password "
-            android:inputType="textPassword"
-            android:padding="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="Confirm Password: "
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/et_ConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:autofillHints="password"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:padding="12dp" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-
-            <Button
-                android:id="@+id/btn_signUp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_blue_light"
-                android:padding="12dp"
-                android:text="Sign up"
-                android:textColor="@android:color/white" />
-
-
-        </LinearLayout>
+        android:background="#B1C29E">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            >
+            <TextView
+                android:id="@+id/tv_login_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:text="Please Register"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Username -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Username"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autofillHints="username"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Username"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_error_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <!-- First Name -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="First name"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_firstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autofillHints="FirstName"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Enter first name"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_error_firstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <!-- Last Name -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Last name"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_LastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autofillHints="LastName"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Enter last name"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_error_lastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <!-- Email -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Email"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autofillHints="emailAddress"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Enter email"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_error_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <!-- Phone Number -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Phone number"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autofillHints="phoneNumber"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Phone Number"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_error_phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <!-- Date of Birth -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Date of birth (Y-m-d)"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_dateOfBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autofillHints="birthDate"
+                android:background="@android:drawable/editbox_background"
+                android:hint="YYYY-MM-DD"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_error_dateOfBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <!-- Age -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Age"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autofillHints="birthDate"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Enter Age"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_error_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <!-- Driving License -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Do you have a driving license?"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_License"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autofillHints="text"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Yes/No"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_error_license"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <!-- Password -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Password"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints="password"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="Enter your password"
+                    android:textSize="14sp"
+                    android:inputType="textPassword"
+                    android:padding="12dp"/>
+
+                <ImageView
+                    android:id="@+id/iv_showPassword"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="Show Password"
+                    android:padding="5dp"
+                    android:src="@drawable/open_eye" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_error_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <!-- Confirm Password -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Confirm Password"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/et_ConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints="password"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="Enter your password"
+                    android:textSize="14sp"
+                    android:inputType="textPassword"
+                    android:padding="12dp"/>
+
+                <ImageView
+                    android:id="@+id/iv_showConfirmPassword"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="Show Password"
+                    android:padding="5dp"
+                    android:src="@drawable/open_eye" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_error_confirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_already_have_ac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:textSize="12sp" />
 
 
-         <LinearLayout
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content">
-             <TextView
-
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Already have an account? "
-                 android:textColor="@color/white"
-                 android:textSize="14dp"
-                 android:textStyle="bold"
-
-                 />
-
-             <TextView
-                 android:id="@+id/tv_already_have_ac"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Sign in"
-                 android:textColor="#121111"
-                 android:textSize="14dp"
-                 android:textStyle="bold"
-
-                 />
-         </LinearLayout>
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_signUp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#659287"
+                    android:padding="12dp"
+                    android:text="Sign up"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
+    <!-- Progress Bar Overlay -->
+    <RelativeLayout
+        android:id="@+id/progress_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#807E7C7C"
+        android:visibility="gone">
 
-    </LinearLayout>
-
-</ScrollView>
+        <ProgressBar
+            android:id="@+id/progressBar_overlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true" />
+    </RelativeLayout>
+</FrameLayout>

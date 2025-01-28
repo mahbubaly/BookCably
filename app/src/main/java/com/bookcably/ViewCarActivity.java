@@ -34,12 +34,16 @@ public class ViewCarActivity extends AppCompatActivity {
             //Toast.makeText(ViewCarActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ViewCarActivity.this, DeleteCarsByNameAdmin.class);
             startActivity(intent);
+            
+
         });
 
         UpdateBtn.setOnClickListener(v->{
             //Toast.makeText(ViewCarActivity.this, "Updated", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ViewCarActivity.this,UpdateCarInfo.class);
             startActivity(intent);
+
+
 
         });
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -125,6 +126,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return exists;
     }
 
+
+    public boolean isUsernameTaken(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_REGISTER + " WHERE " + COL_USERNAME + " = ?", new String[]{username});
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
+    }
+
     public boolean insertCar(String nameOfBrand, String model, String seatOfCar, String carNumberString, String costPerDayString, byte[] imageByteArray) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -149,6 +159,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_REGISTER, null);
     }
+
+    public Cursor getLoggedInUser(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        // Query based on the email
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_REGISTER + " WHERE " + COL_EMAIL + " = ?", new String[]{email.trim()});
+        Log.d("DatabaseHelper", "Query executed. Cursor count: " + (cursor != null ? cursor.getCount() : 0));
+        return cursor;
+    }
+
+
 
     public Cursor getItemsByModelName(String SearchedModelName) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -214,11 +234,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return resultDb != -1;
     }
 
-    public Cursor getUserDetails(String username) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        return db.query(TABLE_REGISTER, null, COL_USERNAME + "=?", new String[]{username},
-                null, null, null);
-    }
+
 
     public Cursor getSearchedUserByModelNameAndDelete(String modelName) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -229,5 +245,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         long resultDb = db.delete(TABLE_BOOKINGS, COL_BOOKING_MODEL_NAME + " = ?", new String[]{modelName});
         return resultDb != -1;
+    }
+
+    public Cursor getUserData(String uid) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM users WHERE uid = ?", new String[]{uid});
     }
 }

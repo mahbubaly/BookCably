@@ -46,8 +46,9 @@ public class DeleteUserActivity extends AppCompatActivity {
         buttonDelete.setOnClickListener(view -> showDeleteConfirmationDialog());
 
         buttonGoBackHome.setOnClickListener(v -> {
-            Intent intent = new Intent(DeleteUserActivity.this, ViewCarActivity.class);
+            Intent intent = new Intent(DeleteUserActivity.this, AdminPanel.class);
             startActivity(intent);
+            finish();
         });
     }
 
@@ -95,6 +96,7 @@ public class DeleteUserActivity extends AppCompatActivity {
             Toast.makeText(this, "User deleted", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(DeleteUserActivity.this, ViewCarActivity.class);
             startActivity(intent);
+            finish();
         } else {
             Toast.makeText(this, "User not deleted", Toast.LENGTH_SHORT).show();
         }

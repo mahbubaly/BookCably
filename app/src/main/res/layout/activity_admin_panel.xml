@@ -129,8 +129,8 @@
            android:id="@+id/btn_backHome"
            android:layout_width="200dp"
            android:layout_height="wrap_content"
-           android:backgroundTint="#1994CC"
-           android:text="Back"
+           android:backgroundTint="#DA3131"
+           android:text="Log out"
            android:textSize="16dp" />
    </LinearLayout>
 

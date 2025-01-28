@@ -34,6 +34,7 @@ public class CarOnRentActivity extends AppCompatActivity {
             Intent intent = new Intent(CarOnRentActivity.this, CancelBookingActivity.class);
             startActivity(intent);
 
+
         });
 
     }

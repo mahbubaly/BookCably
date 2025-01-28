@@ -33,11 +33,9 @@ public class CarAdapter extends CursorAdapter {
         TextView BrandNameTextView = view.findViewById(R.id.text_viewBrandName);
         TextView ModelNameTextView = view.findViewById(R.id.text_view_ModelName);
         TextView SeatNumberView = view.findViewById(R.id.text_view_Seat);
-
         TextView CarNumberTextView = view.findViewById(R.id.text_view_CarNumber);
         TextView perHourTextView = view.findViewById(R.id.text_view_Cost);
         ImageView productImageView = view.findViewById(R.id.image_view_product);
-
 
         //Calling from database:
         String brandNam = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_PRODUCT_BNAME));
@@ -72,7 +70,7 @@ public class CarAdapter extends CursorAdapter {
         } else {
             Log.e("CarAdapter", "Image data is null or empty");
             // Optionally set a default image or hide the ImageView
-            productImageView.setImageResource(R.drawable.adminimage); // replace with your default image
+            productImageView.setImageResource(R.drawable.adminimage);
         }
 
     }

@@ -21,7 +21,7 @@ public class CancelBookingActivity extends AppCompatActivity {
 
     private Button buttonDelete;
     private Button buttonSearch;
-    private Button buttonGoBackHome;
+
 
     private DatabaseHelper databaseHelper;
 
@@ -36,7 +36,7 @@ public class CancelBookingActivity extends AppCompatActivity {
 
         buttonDelete = findViewById(R.id.btn_delete_user);
         buttonSearch = findViewById(R.id.button_search);
-        buttonGoBackHome = findViewById(R.id.btn_UBackHome);
+
 
         // Initialize the database helper
         databaseHelper = new DatabaseHelper(this);
@@ -44,10 +44,7 @@ public class CancelBookingActivity extends AppCompatActivity {
         buttonSearch.setOnClickListener(view -> searchProduct());
         buttonDelete.setOnClickListener(view -> showDeleteConfirmationDialog());
 
-        buttonGoBackHome.setOnClickListener(v -> {
-            Intent intent = new Intent(CancelBookingActivity.this, ViewCarActivity.class);
-            startActivity(intent);
-        });
+
     }
 
     private void searchProduct() {
@@ -78,6 +75,9 @@ public class CancelBookingActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, (dialog, which) -> deleteProduct())
                 .setNegativeButton(android.R.string.no, null)
                 .show();
+
+
+        finish();
     }
 
     private void deleteProduct() {
@@ -97,4 +97,11 @@ public class CancelBookingActivity extends AppCompatActivity {
             Toast.makeText(this, "Cancellation failed, please try again later", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void navigateToActivity(Class<?> targetActivity) {
+        Intent intent = new Intent(CancelBookingActivity.this, targetActivity);
+        startActivity(intent);
+        finish();
+}
+
 }

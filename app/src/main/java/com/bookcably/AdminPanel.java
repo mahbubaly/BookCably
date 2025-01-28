@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.application.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class AdminPanel extends AppCompatActivity {
@@ -34,6 +35,8 @@ public class AdminPanel extends AppCompatActivity {
         availableCar.setOnClickListener(v->{
             Intent intent = new Intent(AdminPanel.this,ViewCarActivity.class);
             startActivity(intent);
+
+
         });
 
 
@@ -45,10 +48,13 @@ public class AdminPanel extends AppCompatActivity {
         btnCarOnRent.setOnClickListener(v->{
             Intent intent = new Intent(AdminPanel.this,CarOnRentActivity.class);
             startActivity(intent);
+
         });
         btnHome.setOnClickListener(v->{
-            Intent intent = new Intent(AdminPanel.this,MainActivity.class);
-            startActivity(intent);
+            Intent takeRentIntent = new Intent(AdminPanel.this, MainActivity.class);
+            startActivity(takeRentIntent);
+            FirebaseAuth.getInstance().signOut();
+            finish();
         });
 
 

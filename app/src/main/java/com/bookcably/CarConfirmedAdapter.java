@@ -64,8 +64,8 @@ public class CarConfirmedAdapter extends CursorAdapter {
             }
         } else {
             Log.e("CarAdapter", "Image data is null or empty");
-            // Optionally set a default image or hide the ImageView
-            productImageView.setImageResource(R.drawable.adminimage); // replace with your default image
+
+            productImageView.setImageResource(R.drawable.adminimage);
         }
 
     }

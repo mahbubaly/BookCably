@@ -59,8 +59,9 @@ public class DeleteCarsByNameAdmin extends AppCompatActivity {
         buttonDelete.setOnClickListener(view -> showDeleteConfirmationDialog());
 
         buttonGoBackHome.setOnClickListener(v -> {
-            Intent intent = new Intent(DeleteCarsByNameAdmin.this, UserListActivityAdminPage.class);
+            Intent intent = new Intent(DeleteCarsByNameAdmin.this, AdminPanel.class);
             startActivity(intent);
+            finish();
         });
     }
 

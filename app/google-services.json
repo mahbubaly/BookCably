@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "255726141690",
+    "project_id": "bookcably",
+    "storage_bucket": "bookcably.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255726141690:android:ec54d06c35e6a386724943",
+        "android_client_info": {
+          "package_name": "com.example.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArn91MlB5I5N8lIjWjQVK2xnJ014TdjSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+
+}

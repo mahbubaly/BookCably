@@ -90,6 +90,9 @@
 
     <ListView
         android:id="@+id/list_view_Cars"
+        android:divider="@color/black"
+        android:dividerHeight="2dp"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/button_container"

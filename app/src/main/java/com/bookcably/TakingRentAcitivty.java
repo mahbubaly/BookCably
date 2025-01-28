@@ -28,7 +28,7 @@ public class TakingRentAcitivty extends AppCompatActivity {
     private ImageView imageViewProduct;
     private Button buttonConfirm;
     private Button buttonSearch;
-    private Button buttonGoBackHome;
+
     private Button btnTotalAmountINTK;
 
 
@@ -55,16 +55,13 @@ public class TakingRentAcitivty extends AppCompatActivity {
         buttonConfirm = findViewById(R.id.button_confirm);
         buttonSearch = findViewById(R.id.button_search);
         btnTotalAmountINTK = findViewById(R.id.btn_Total_amount);
-        buttonGoBackHome = findViewById(R.id.btn_goBackHome);
+
 
         databaseHelper = new DatabaseHelper(this);
 
         buttonSearch.setOnClickListener(view -> searchProduct());
         buttonConfirm.setOnClickListener(view -> confirmedProduct());
-        buttonGoBackHome.setOnClickListener(v -> {
-            Intent intent = new Intent(TakingRentAcitivty.this, UserVIewCarActivity.class);
-            startActivity(intent);
-        });
+
 
         btnTotalAmountINTK.setOnClickListener(v -> calculateTotalBill());
     }
@@ -138,6 +135,7 @@ public class TakingRentAcitivty extends AppCompatActivity {
             Intent intent = new Intent(TakingRentAcitivty.this,AvailableCarActivityUserPage.class);
             startActivity(intent);
             Toast.makeText(this, "Booking confirmed", Toast.LENGTH_SHORT).show();
+            finish();
 
         } else {
             Toast.makeText(this, "Booking failed", Toast.LENGTH_SHORT).show();

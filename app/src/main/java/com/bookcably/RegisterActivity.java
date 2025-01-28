@@ -4,34 +4,52 @@ import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.application.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    private FirebaseAuth auth;
+    private FirebaseFirestore firestore;
+    private RelativeLayout progressOverlay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // Initialize views
         EditText etUserName = findViewById(R.id.et_username);
         EditText etFirstName = findViewById(R.id.et_firstName);
-        EditText etFastName = findViewById(R.id.et_LastName);
+        EditText etLastName = findViewById(R.id.et_LastName);
         EditText etEmail = findViewById(R.id.et_email);
         EditText etPhone = findViewById(R.id.et_phoneNumber);
         EditText etDateOfBirth = findViewById(R.id.et_dateOfBirth);
@@ -40,40 +58,58 @@ public class RegisterActivity extends AppCompatActivity {
         EditText etPassword = findViewById(R.id.et_password);
         EditText etConfirmPassword = findViewById(R.id.et_ConfirmPassword);
 
-        Button btnSignUp = findViewById(R.id.btn_signUp);
-        TextView textView_already_have_ac = findViewById(R.id.tv_already_have_ac);
+        progressOverlay = findViewById(R.id.progress_overlay);
 
-        // Add TextWatcher to etDateOfBirth to auto-fill age
+        Button btnSignUp = findViewById(R.id.btn_signUp);
+        TextView textViewAlreadyHaveAccount = findViewById(R.id.tv_already_have_ac);
+
+        ImageView ivShowPassword = findViewById(R.id.iv_showPassword);
+        ImageView ivShowConfirmPassword = findViewById(R.id.iv_showConfirmPassword);
+
+        // Initialize Firebase
+        auth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
+
+        // Toggle password visibility
+        ivShowPassword.setOnClickListener(v -> togglePasswordVisibility(etPassword));
+        ivShowConfirmPassword.setOnClickListener(v -> togglePasswordVisibility(etConfirmPassword));
+
+        // Auto-fill age when date of birth changes
         etDateOfBirth.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
-            public void afterTextChanged(Editable editable) {
-                String dateOfBirth = etDateOfBirth.getText().toString().trim();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-                Date dob;
-                try {
-                    dob = sdf.parse(dateOfBirth);
-                    Calendar dobCalendar = Calendar.getInstance();
-                    dobCalendar.setTime(dob);
-                    int calculatedAge = calculateAge(dobCalendar);
-                    etAge.setText(String.valueOf(calculatedAge));
-                } catch (ParseException e) {
-                    etAge.setText("");  // Clear the age field if the date format is incorrect
+            public void afterTextChanged(Editable s) {
+                String dateOfBirth = s.toString().trim();
+                if (!TextUtils.isEmpty(dateOfBirth) && dateOfBirth.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                    try {
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                        Date dob = sdf.parse(dateOfBirth);
+                        if (dob != null) {
+                            Calendar dobCalendar = Calendar.getInstance();
+                            dobCalendar.setTime(dob);
+                            etAge.setText(String.valueOf(calculateAge(dobCalendar)));
+                        }
+                    } catch (ParseException e) {
+                        etAge.setText("");
+                    }
+                } else {
+                    etAge.setText("");
                 }
             }
         });
 
-        // Authentication valid user
         btnSignUp.setOnClickListener(v -> {
-            // Get string and convert this into string:
+            showProgress(true);
+
+            // Get user input
             String userName = etUserName.getText().toString().trim();
             String firstName = etFirstName.getText().toString().trim();
-            String lastName = etFastName.getText().toString().trim();
+            String lastName = etLastName.getText().toString().trim();
             String email = etEmail.getText().toString().trim();
             String phoneNumber = etPhone.getText().toString().trim();
             String dateOfBirth = etDateOfBirth.getText().toString().trim();
@@ -82,111 +118,139 @@ public class RegisterActivity extends AppCompatActivity {
             String password = etPassword.getText().toString().trim();
             String confirmPassword = etConfirmPassword.getText().toString().trim();
 
-            // Validate all fields are filled
-            if (userName.isEmpty() || firstName.isEmpty() || lastName.isEmpty() ||
-                    email.isEmpty() || phoneNumber.isEmpty() || dateOfBirth.isEmpty() ||
-                    ageStr.isEmpty() || license.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                Toast.makeText(RegisterActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
+            // Initialize error fields
+            TextView errorEmail = findViewById(R.id.tv_error_email);
+
+            // Clear all error messages
+            TextView[] errorViews = {
+                    findViewById(R.id.tv_error_username),
+                    findViewById(R.id.tv_error_firstName),
+                    findViewById(R.id.tv_error_lastName),
+                    errorEmail,
+                    findViewById(R.id.tv_error_phoneNumber),
+                    findViewById(R.id.tv_error_dateOfBirth),
+                    findViewById(R.id.tv_error_age),
+                    findViewById(R.id.tv_error_license),
+                    findViewById(R.id.tv_error_password),
+                    findViewById(R.id.tv_error_confirmPassword)
+            };
+            for (TextView tv : errorViews) tv.setVisibility(View.GONE);
+
+            boolean hasError = false;
+
+            // Validate fields
+            if (TextUtils.isEmpty(userName)) {
+                showError(findViewById(R.id.tv_error_username), "Username is required");
+                hasError = true;
+            }
+            if (TextUtils.isEmpty(firstName)) {
+                showError(findViewById(R.id.tv_error_firstName), "First name is required");
+                hasError = true;
+            }
+            if (TextUtils.isEmpty(lastName)) {
+                showError(findViewById(R.id.tv_error_lastName), "Last name is required");
+                hasError = true;
+            }
+            if (TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                showError(errorEmail, "Invalid email");
+                hasError = true;
+            }
+            if (!phoneNumber.matches("\\+8801[3-9]\\d{8}")) {
+                showError(findViewById(R.id.tv_error_phoneNumber), "Invalid phone number");
+                hasError = true;
+            }
+            if (!dateOfBirth.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                showError(findViewById(R.id.tv_error_dateOfBirth), "Invalid date format");
+                hasError = true;
+            }
+            if (TextUtils.isEmpty(password) || !password.equals(confirmPassword)) {
+                showError(findViewById(R.id.tv_error_password), "Passwords do not match");
+                hasError = true;
+            }
+
+            if (hasError) {
+                showProgress(false);
                 return;
             }
 
-            // Validate username is lowercase and no special characters
-            if (!userName.matches("[a-z0-9_]+")) {
-                Toast.makeText(RegisterActivity.this, "Username must be in lowercase and contain no special characters", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Validate email format
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                Toast.makeText(RegisterActivity.this, "Invalid email format", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Validate phone number (Bangladeshi format)
-            if (!phoneNumber.matches("^(?:\\+88|88)?(01[3-9]\\d{8})$")) {
-                Toast.makeText(RegisterActivity.this, "Invalid Bangladeshi phone number format", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Validate password (at least 8 characters, 1 digit, 1 upper case, 1 lower case, 1 special character)
-            Pattern passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[@#$%^&+=]).{8,}$");
-            Matcher passwordMatcher = passwordPattern.matcher(password);
-            if (!passwordMatcher.matches()) {
-                Toast.makeText(RegisterActivity.this, "Password must be at least 8 characters long and contain at least one digit, one upper case letter, one lower case letter, and one special character", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Validate passwords match
-            if (!password.equals(confirmPassword)) {
-                Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Parse and validate age
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-            Date dob;
-            try {
-                dob = sdf.parse(dateOfBirth);
-            } catch (ParseException e) {
-                Toast.makeText(RegisterActivity.this, "Invalid date of birth format. Use yyyy-MM-dd.", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            Calendar dobCalendar = Calendar.getInstance();
-            dobCalendar.setTime(dob);
-            int calculatedAge = calculateAge(dobCalendar);
-            int providedAge;
-            try {
-                providedAge = Integer.parseInt(ageStr);
-            } catch (NumberFormatException e) {
-                Toast.makeText(RegisterActivity.this, "Invalid age format", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            if (calculatedAge != providedAge) {
-                Toast.makeText(RegisterActivity.this, "Your age doesn't match with Date of birth!!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            if (calculatedAge < 18) {
-                Toast.makeText(RegisterActivity.this, "Age must be 18 or older", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Validate license agreement
-            if (!license.equalsIgnoreCase("yes")) {
-                Toast.makeText(RegisterActivity.this, "You are not eligible for booking car!!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            Toast.makeText(RegisterActivity.this, "Successfully signed up", Toast.LENGTH_SHORT).show();
-
-            // Connection with database:
-            DatabaseHelper dbHelper = new DatabaseHelper(RegisterActivity.this);
-            boolean isInserted = dbHelper.insertUser(userName, firstName, lastName, email, phoneNumber, dateOfBirth, ageStr, license, password);
-
-            if (isInserted) {
-                Toast.makeText(RegisterActivity.this, "Please login", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(intent);
-            } else {
-                Toast.makeText(RegisterActivity.this, "Not registered, please try again!!", Toast.LENGTH_SHORT).show();
-            }
+            auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = auth.getCurrentUser();
+                            if (user != null) {
+                                user.sendEmailVerification().addOnCompleteListener(emailTask -> {
+                                    if (emailTask.isSuccessful()) {
+                                        saveUserDataToFireStore(userName, email, firstName, lastName, phoneNumber, dateOfBirth, ageStr, license);
+                                        Toast.makeText(this, "Check your email to verify", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(this, MainActivity.class));
+                                        finish();
+                                    }
+                                });
+                            }
+                        } else {
+                            if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                // Email already in use
+                                showError(errorEmail, "This email is already registered");
+                            } else {
+                                Toast.makeText(this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        showProgress(false);
+                    });
         });
 
-        // Btn back to home page:
-        textView_already_have_ac.setOnClickListener(v -> {
-            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-            startActivity(intent);
+
+        textViewAlreadyHaveAccount.setOnClickListener(v -> {
+            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+            finish();
         });
     }
 
-    private int calculateAge(Calendar dobCalendar) {
+    private void showError(TextView textView, String message) {
+        textView.setText(message);
+        textView.setVisibility(View.VISIBLE);
+    }
+
+    private void saveUserDataToFireStore(String username, String email, String firstname, String lastname, String phone, String dob, String age, String hasLicense) {
+        // Create a map with the user's data
+        Map<String, String> userData = new HashMap<>();
+        userData.put("username", username);
+        userData.put("email", email);
+        userData.put("firstname", firstname);
+        userData.put("lastname", lastname);
+        userData.put("phone", phone);
+        userData.put("dob", dob);
+        userData.put("age", age);
+        userData.put("hasLicense", hasLicense);
+
+        // Use the email as the document ID and store the user data
+        firestore.collection("users").document(email).set(userData)
+                .addOnSuccessListener(documentReference -> Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show())
+                .addOnFailureListener(e -> Toast.makeText(this, "Error saving user data: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+
+    private void showProgress(boolean show) {
+        if (progressOverlay != null) progressOverlay.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
+    private int calculateAge(Calendar dob) {
         Calendar today = Calendar.getInstance();
-        int age = today.get(Calendar.YEAR) - dobCalendar.get(Calendar.YEAR);
-        if (today.get(Calendar.DAY_OF_YEAR) < dobCalendar.get(Calendar.DAY_OF_YEAR)) {
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
             age--;
         }
         return age;
+    }
+
+    private void togglePasswordVisibility(EditText passwordEditText) {
+        int start = passwordEditText.getSelectionStart();
+        int end = passwordEditText.getSelectionEnd();
+        if (passwordEditText.getInputType() == 129) {
+            passwordEditText.setInputType(1);
+        } else {
+            passwordEditText.setInputType(129);
+        }
+        passwordEditText.setSelection(start, end);
     }
 }
